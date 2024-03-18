@@ -22,7 +22,7 @@ runs:
           echo "No binaries to upload"
         else
           for BIN_NAME in $BIN_NAMES; do
-            RESPONSE=$(curl -sSL -H "Authorization: token $GITHUB_TOKEN" -H "Content-Type: application/json" --data-binary @"target/$BIN_NAME" "https://uploads.github.com/repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID/assets?name=$BIN_NAME")
+            RESPONSE=$(curl -sSL -H "Authorization: token $GITHUB_TOKEN" -H "Content-Type: application/json" --data-binary @"target/builds/$BIN_NAME" "https://uploads.github.com/repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID/assets?name=$BIN_NAME")
             ASSET_ID="$(echo "$RESPONSE" | jq -r '.id')"
             if [[ "$ASSET_ID" != null ]]; then
               echo "Asset uploaded successfully!: ASSET_ID=$ASSET_ID"
