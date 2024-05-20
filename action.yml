@@ -9,6 +9,10 @@ runs:
     - name: Release
       shell: bash
       run: |
+        if [ "${{ github.event_name }}" == "pull_request" ]; then
+          echo "Skipping release for pull request"
+          exit 0
+        fi
         GITHUB_TOKEN=${{ github.token }}
         GITHUB_REPOSITORY=${{ github.repository }}
         RESPONSE=$(curl -sSL -H "Authorization: token $GITHUB_TOKEN" -H "Content-Type: application/json" -X POST -d "{\"tag_name\":\"$TAG_NAME\",\"name\":\"$TAG_NAME\"}" "https://api.github.com/repos/$GITHUB_REPOSITORY/releases")
