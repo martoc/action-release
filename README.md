@@ -1,7 +1,10 @@
-[![checks](https://github.com/martoc/action-release/actions/workflows/checks.yml/badge.svg?branch=main&event=push)](https://github.com/martoc/action-release/actions/workflows/checks.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![slack](https://img.shields.io/badge/slack-general-brightgreen.svg?logo=slack)](https://app.slack.com/messages/T8L8AAD3M/C8LBHLSVA)
 
 # action-release
 
-[Documentation >>](./docs/index.md)
+A GitHub Action that creates a GitHub release and optionally uploads binary files to it. Simplifies the CI/CD workflow by automating the release process.
+
+## Table of Content
+
+* [Code Style](./docs/CODESTYLE.md)
+* [Usage](./docs/USAGE.md)
